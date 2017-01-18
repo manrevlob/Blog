@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h1><%= @article.title %></h1>
+  <h1><%= @article.title %> - Nº visitas: <%= @article.visits_count %></h1>
 
   <div>
     <%= @article.body %>
@@ -8,8 +8,10 @@
 
   <% unless @article.user.nil? %>
     <p>
-      Escrito por: @article.user.email
+      Escrito por: <%= @article.user.email  %>
     </p>
   <% end %>
+
+  <%= link_to "Atras", :back, class:"blue" %>
 
 </div>

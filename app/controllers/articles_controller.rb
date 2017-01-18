@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
 
-  before_action :validate_user, except: [:show, :index]
+  # Acciones a realizar antes de llegar al controlador
+  before_action :authenticate_user!, except: [:show, :index]
+  before_action :article_set, except: [:index, :new, :create]
 
   # GET /articles
   def index
@@ -9,7 +11,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/:id
   def show
-    @article = Article.find(params[:id])
+    @article.update_visits_count
   end
 
   #GET /articles/new
@@ -34,19 +36,17 @@ class ArticlesController < ApplicationController
 
   #DELETE "/articles/:id"
   def destroy
-    @article = Article.find(params[:id])
     @article.destroy
     redirect_to articles_path
   end
 
   #GET "/articles/:id/edit" edit
   def edit
-    @article = Article.find(params[:id])
   end
 
   #PUT /articles/:id
   def update
-    @article = Article.find(params[:id])
+
     @article.update(article_params)
     if @article.valid? #True pasa todas las validaciones, False no las pasa
       @article.save
@@ -59,8 +59,8 @@ class ArticlesController < ApplicationController
 
   private
 
-  def validate_user
-    redirect_to new_user_session_path, notice: "Necesita iniciar sesión"
+  def article_set
+    @article = Article.find(params[:id])
   end
 
   def article_params

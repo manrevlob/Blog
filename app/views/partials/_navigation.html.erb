@@ -2,10 +2,10 @@
   <nav class="be-blue white large-padding">
     <ul class="row center-xs around-xs middle-xs">﻿
       <li class="col-md">
-        <h1 class="no-margin" id="logo "><%= link_to 'Blog Rev', root_path %></h1>
+        <h1 class="no-margin" id="logo "><%= link_to 'Blog Rev', root_path, class:"white" %></h1>
       </li>
       <li class="col-md">
-        <b><%= link_to 'Inicio', articles_path %></b>
+        <b><%= link_to 'Inicio', articles_path, class:"white" %></b>
       </li>
       <li class="col-md">
         <b>Diseño</b>
@@ -18,14 +18,14 @@
       </li>
       <% if user_signed_in?%>
           <li class="col-md">
-            <b><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></b>
+            <b><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class:"white" %></b>
           </li>
       <% else %>
           <li class="col-md">
-            <b><%= link_to "Iniciar sesión", new_user_session_path %></b>
+            <b><%= link_to "Iniciar sesión", new_user_session_path, class:"white" %></b>
           </li>
           <li class="col-md">
-            <b><%= link_to "Crear usuario", new_user_registration_path %></b>
+            <b><%= link_to "Crear usuario", new_user_registration_path, class:"white" %></b>
           </li>
       <% end %>
     </ul>

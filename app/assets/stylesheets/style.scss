@@ -23,7 +23,15 @@ a:visited {
 }
 
 .white {
-  color: #F7F7F7 !important;
+  color: #F7F7F7;
+}
+
+.red {
+  color: #B00100 !important;
+}
+
+.blue {
+  color: #0072B8 !important;
 }
 
 .large-padding {
@@ -34,13 +42,7 @@ a {
   text-decoration: none;
 }
 
-.red {
-  color: #B00100 !important;
-}
 
-.blue {
-  color: #0072B8 !important;
-}
 
 #logo {
   font-size: 1.2em;
