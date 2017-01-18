@@ -1,0 +1,33 @@
+<header>
+  <nav class="be-blue white large-padding">
+    <ul class="row center-xs around-xs middle-xs">﻿
+      <li class="col-md">
+        <h1 class="no-margin" id="logo "><%= link_to 'Blog Rev', root_path %></h1>
+      </li>
+      <li class="col-md">
+        <b><%= link_to 'Inicio', articles_path %></b>
+      </li>
+      <li class="col-md">
+        <b>Diseño</b>
+      </li>
+      <li class="col-md">
+        <b>Programación</b>
+      </li>
+      <li class="col-md">
+        <b>Tecnología</b>
+      </li>
+      <% if user_signed_in?%>
+          <li class="col-md">
+            <b><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></b>
+          </li>
+      <% else %>
+          <li class="col-md">
+            <b><%= link_to "Iniciar sesión", new_user_session_path %></b>
+          </li>
+          <li class="col-md">
+            <b><%= link_to "Crear usuario", new_user_registration_path %></b>
+          </li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
