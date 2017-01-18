@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   # Relacion 1 - 0..*
   has_many :articles
+  has_many :comments
 
 end

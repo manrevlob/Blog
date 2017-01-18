@@ -1,16 +1,37 @@
 <div class="container">
 
-  <h1><%= @article.title %> - Nº visitas: <%= @article.visits_count %></h1>
+  <h1><%= @article.title %></h1>
 
   <div>
     <%= @article.body %>
   </div>
-
+  <p>
+    Nº visitas: <%= @article.visits_count %>
+  </p>
   <% unless @article.user.nil? %>
     <p>
       Escrito por: <%= @article.user.email  %>
     </p>
   <% end %>
+
+  <div class="field">
+    <h3>Comentarios:</h3>
+
+    <%= render 'comments/form' %>
+
+    <ul>
+    <% @article.comments.each do |comment| %>
+        <fieldset>
+          <li>
+            <%= comment.body %><br>
+            <hr>
+            Escrito por: <%= comment.user.email %>
+          </li>
+        </fieldset>
+    <% end %>
+    </ul>
+
+  </div>
 
   <%= link_to "Atras", :back, class:"blue" %>
 

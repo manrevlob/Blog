@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
-  devise_for :users
   root 'welcome#index'
+  resources :articles do
+    resources :comments, only: [:create, :destroy, :update]
+  end
 
-  # CRUD Articles
-  resources :articles
+  devise_for :users
+
   #get '/articles',              to: 'articles#index'
   #get '/articles/:id',          to: 'articles#show'
   #get '/articles/new',          to: 'articles#new'

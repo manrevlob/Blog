@@ -4,6 +4,9 @@ class Article < ApplicationRecord
   validates :title, presence: true, uniqueness: true
   validates :body, presence: true, length: { minimum: 10}
 
+  # Relacion 1 - 0..*
+  has_many :comments
+
   # Relacion 0..* - 1
   belongs_to :user
 
