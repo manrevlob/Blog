@@ -1,0 +1,19 @@
+<h1><%= tituloVista %> de un articulo</h1>
+<hr>
+<%= form_for(@article) do |f| %>
+    <% @article.errors.full_messages.each do |m| %>
+        <div class="be-blue white top-space">
+          * <%= m %>
+        </div>
+    <% end %>
+    <div class="field">
+      <%= f.text_field :title, placeholder: 'Titulo del articulo', class: 'form-control' %>
+    </div>
+    <div class="field">
+      <%= f.text_area :body, placeholder: 'Escribe aqui tu articulo', style: 'height: 250px;', class: 'form-control' %>
+    </div>
+    <div class="field">
+      <%= f.submit btnVista, class: 'btn be-blue white' %>
+      <%= link_to 'Cancelar', :back, class: 'btn be-blue white' %>
+    </div>
+<% end %>
