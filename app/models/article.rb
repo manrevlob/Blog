@@ -4,6 +4,10 @@ class Article < ApplicationRecord
   validates :title, presence: true, uniqueness: true
   validates :body, presence: true, length: { minimum: 10}
 
+  # Funcionalidad de paperClip
+  has_attached_file :cover, styles: { medium: "300x300>", thumb: "100x100>" }
+  validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
+
   # Relacion 1 - 0..*
   has_many :comments
 

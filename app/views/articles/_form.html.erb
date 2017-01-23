@@ -13,6 +13,9 @@
       <%= f.text_area :body, placeholder: 'Escribe aqui tu articulo', style: 'height: 250px;', class: 'form-control' %>
     </div>
     <div class="field">
+      Portada: <%= f.file_field :cover %>
+    </div>
+    <div class="field">
       <%= f.submit btnVista, class: 'btn be-blue white' %>
       <%= link_to 'Cancelar', :back, class: 'btn be-blue white' %>
     </div>

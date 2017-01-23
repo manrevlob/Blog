@@ -5,17 +5,13 @@
         <h1 class="no-margin" id="logo "><%= link_to 'Blog Rev', root_path, class:"white" %></h1>
       </li>
       <li class="col-md">
-        <b><%= link_to 'Inicio', articles_path, class:"white" %></b>
+        <b><%= link_to 'Articulos', articles_path, class:"white" %></b>
       </li>
-      <li class="col-md">
-        <b>Diseño</b>
-      </li>
-      <li class="col-md">
-        <b>Programación</b>
-      </li>
-      <li class="col-md">
-        <b>Tecnología</b>
-      </li>
+      <% @categories.each do |category| %>
+          <li class="col-md">
+            <b><%= link_to category.name, category %></b>
+          </li>
+      <% end %>
       <% if user_signed_in?%>
           <li class="col-md">
             <b><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class:"white" %></b>

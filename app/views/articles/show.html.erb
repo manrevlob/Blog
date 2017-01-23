@@ -2,7 +2,11 @@
 
   <h1><%= @article.title %></h1>
 
-  <div>
+  <div class="field">
+    <%= image_tag @article.cover.url %>
+  </div>
+
+  <div class="field">
     <%= @article.body %>
   </div>
   <p>
@@ -19,7 +23,7 @@
 
     <%= render 'comments/form' %>
 
-    <ul>
+    <ul id="comments-box">
     <% @article.comments.each do |comment| %>
         <fieldset>
           <li>
