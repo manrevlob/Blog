@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :articles
   has_many :comments
 
+  include PermissionsConcerns
+
 end

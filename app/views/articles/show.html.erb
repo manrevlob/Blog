@@ -3,20 +3,31 @@
   <h1><%= @article.title %></h1>
 
   <div class="field">
+    <h3>Portada:</h3>
     <%= image_tag @article.cover.url %>
   </div>
 
   <div class="field">
     <%= @article.body %>
   </div>
-  <p>
-    Nº visitas: <%= @article.visits_count %>
-  </p>
-  <% unless @article.user.nil? %>
+
+  <div class="field">
     <p>
-      Escrito por: <%= @article.user.email  %>
+      <label>Nº visitas:</label> <%= @article.visits_count %>
     </p>
-  <% end %>
+    <% unless @article.user.nil? %>
+      <p>
+        <label>Escrito por:</label> <%= @article.user.email  %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <h3>Categorias:</h3>
+    <% @article.categories.each do |category| %>
+        <%= link_to category.name, category, style:"color:#{category.color};" %>
+    <% end %>
+  </div>
 
   <div class="field">
     <h3>Comentarios:</h3>
@@ -29,14 +40,13 @@
           <li>
             <%= comment.body %><br>
             <hr>
-            Escrito por: <%= comment.user.email %>
+            <label>Escrito por:</label> <%= comment.user.email %>
           </li>
         </fieldset>
     <% end %>
     </ul>
-
   </div>
 
-  <%= link_to "Atras", :back, class:"blue" %>
+  <%= link_to "Atras", article_path, class:"blue" %>
 
 </div>
