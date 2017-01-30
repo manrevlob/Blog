@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1 style="color:<%= @category.color %>;"><%= @category.name %></h1>
+
+<h2>Artículos</h2>
+
+<% @category.articles.each do |a| %>
+    <h3><%= link_to a.title, a, class:"blue" %></h3>
+
+    <div>
+      <p><%= a.body %></p>
+      <p><%= link_to "Eliminar", a, method: :delete, class:"red" %> - <%= link_to "Editar", edit_article_path(a), class:"blue" %></p>
+    </div>
+<% end %>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
