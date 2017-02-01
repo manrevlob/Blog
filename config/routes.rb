@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  get "/dashboard", to: "welcome#dashboard"
+  put "/articles/:id/publish", to: "articles#publish"
+
   #get '/articles',              to: 'articles#index'
   #get '/articles/:id',          to: 'articles#show'
   #get '/articles/new',          to: 'articles#new'

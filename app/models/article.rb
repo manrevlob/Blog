@@ -31,6 +31,15 @@ class Article < ApplicationRecord
   # Ejecuciones que se realizan despues de la eliminacion
   before_destroy :clear_categories
 
+  scope :publicados, ->{ where(state: "published") }
+
+  scope :ultimos, ->{ order("created_at DESC") }
+
+  # Igual que el scope, es una peculiaridad de rails
+  # def self.publicados
+  #   Article.where(state: "published")
+  # end
+
   # Custom setter
   def categories=(value)
     @categories = value

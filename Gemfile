@@ -36,10 +36,9 @@ gem 'devise'
 gem 'paperclip', '~> 5.1'
 
 gem 'rake', '~> 12.0.0'
-
 gem 'jquery-turbolinks'
-
 gem 'aasm'
+gem 'will_paginate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

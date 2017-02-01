@@ -1,0 +1,16 @@
+<% @articles.each do |article| %>
+
+    <h1><%= link_to article.title, article, class:"blue" %></h1>
+
+    <div>
+      <p><%= article.body %></p>
+      <p>
+        <%= link_to "Eliminar", article, method: :delete, class:"red" %>
+         - <%= link_to "Editar", edit_article_path(article), class:"blue" %>
+        <% if article.may_publish? %>
+          - <%= link_to "Publicar", "/articles/#{ article.id }/publish", class:"green", method: :put %>
+        <% end %>
+      </p>
+    </div>
+
+<% end %>
