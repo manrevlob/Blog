@@ -8,7 +8,7 @@
   <!--</div>-->
 
   <div class="field">
-    <%= @article.body %>
+    <%= Sanitize.fragment( @article.body, Sanitize::Config::RELAXED ).html_safe %>
   </div>
 
   <div class="field">
@@ -47,6 +47,6 @@
     </ul>
   </div>
 
-  <%= link_to "Atras", article_path, class:"blue" %>
+  <%= link_to "Atras", articles_path, class:"blue" %>
 
 </div>

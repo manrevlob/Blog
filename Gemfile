@@ -39,6 +39,8 @@ gem 'rake', '~> 12.0.0'
 gem 'jquery-turbolinks'
 gem 'aasm'
 gem 'will_paginate'
+gem 'tinymce-rails', '~> 4.3'
+gem 'sanitize', '~> 4.0', '>= 4.0.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

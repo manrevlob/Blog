@@ -3,7 +3,7 @@
     <h1><%= link_to article.title, article, class:"blue" %></h1>
 
     <div>
-      <p><%= article.body %></p>
+      <p><%= Sanitize.fragment( article.body, Sanitize::Config::RELAXED ).html_safe %></p>
       <p>
         <%= link_to "Eliminar", article, method: :delete, class:"red" %>
          - <%= link_to "Editar", edit_article_path(article), class:"blue" %>
